@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ARQuea
 {
@@ -9,7 +10,12 @@ namespace ARQuea
     {
         public static UIManager Instance;
 
+        [SerializeField] public GameObject home;
+        [SerializeField] public GameObject search;
         [SerializeField] public GameObject itemsUI;
+        [SerializeField] public GameObject log;
+        [SerializeField] public GameObject panier;
+        
 
         public GameObject currentScreen;
 
@@ -25,13 +31,29 @@ namespace ARQuea
         // Start is called before the first frame update
         void Start()
         {
-            //currentScreen = itemsUI;
+            currentScreen = home;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void OnButtonTouch(Button button)
         {
-
+            switch (button.name)
+            {
+                case "HomeButton":
+                    ChangeScreen(currentScreen, home);
+                    break;
+                case "SearchButton":
+                    ChangeScreen(currentScreen, search);
+                    break;
+                /*case "TouchToPlay":
+                    ChangeScreen(currentScreen, gameUi);
+                    break;*/
+                case "ConnectButton":
+                    ChangeScreen(currentScreen, log);
+                    break;
+                case "Panier":
+                    ChangeScreen(currentScreen, panier);
+                    break;
+            }
         }
 
         public void ChangeScreen(GameObject fromScreen, GameObject toScreen, float speed = 0.5f)

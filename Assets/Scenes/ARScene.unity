@@ -280,7 +280,7 @@ MonoBehaviour:
   OnContentPlaced:
     m_PersistentCalls:
       m_Calls: []
-  mDisplayAdvanced: 1
+  mDisplayAdvanced: 0
 --- !u!114 &1349473193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,8 +313,8 @@ MonoBehaviour:
   OnAutomaticHitTest:
     m_PersistentCalls:
       m_Calls: []
-  mDisplayAdvanced: 0
-  mHitTestMode: 0
+  mDisplayAdvanced: 1
+  mHitTestMode: 1
 --- !u!114 &1349473194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 1027344429, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDisplayAdvanced: 1
+  mDisplayAdvanced: 0
   OnInputReceivedEvent:
     m_PersistentCalls:
       m_Calls:

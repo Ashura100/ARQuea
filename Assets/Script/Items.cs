@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.Device;
 
 namespace ARQuea
 {
@@ -14,17 +15,37 @@ namespace ARQuea
         [SerializeField] public UIDocument uIDocument;
         [SerializeField] GameObject itemsUI;
         private VisualElement root;
-        [SerializeField] public ItemsSO[] items;  // Remplacez GameObject[] par ItemSO[]
 
+        Button home;
+        Button search;
+        Button connexion;
+        Button panier;
+
+        [SerializeField] public ItemsSO[] items;  // Remplacez GameObject[] par ItemSO[]
         private ItemsSO selectedItem;  // Ajoutez cette variable pour stocker l'item sélectionné
 
         private void Awake()
         {
             Instance = this;
-            root = uIDocument.rootVisualElement;
 
             // Configuration des boutons d'item
             ConfigureItemButtons();
+        }
+
+        private void OnEnable()
+        {
+            root = uIDocument.rootVisualElement;
+
+            home = root.Q<Button>("HomeButton");
+            search = root.Q<Button>("SearchButton");
+            connexion = root.Q<Button>("ConnectButton");
+            panier = root.Q<Button>("Panier");
+
+            List<Button> buttons = new List<Button> { home, search, connexion, panier };
+            foreach (var button in buttons)
+            {
+                button.clickable.clicked += () => OnButtonTouch(button);
+            }
         }
 
         private void ConfigureItemButtons()
@@ -60,6 +81,11 @@ namespace ARQuea
         public ItemsSO GetSelectedItem()
         {
             return selectedItem;  // Ajoutez cette méthode pour récupérer l'item sélectionné
+        }
+
+        void OnButtonTouch(Button button)
+        {
+            UIManager.Instance.OnButtonTouch(button);
         }
     }
 }
