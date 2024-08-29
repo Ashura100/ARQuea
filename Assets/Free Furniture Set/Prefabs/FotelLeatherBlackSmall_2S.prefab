@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 945654416970670757}
   - component: {fileID: 5423948067845854676}
-  - component: {fileID: 2141764232776191138}
-  - component: {fileID: -2896460447702536019}
   - component: {fileID: -6982631437744295872}
   m_Layer: 0
   m_Name: FotelLeatherBlackSmall_2S
@@ -70,64 +68,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6230665969978734686}
   m_Enabled: 1
---- !u!114 &2141764232776191138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456115914855725087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83dcd8dace8b7fe449d796b980cb121d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selfSelected: 0
-  onSelected:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeselected:
-    m_PersistentCalls:
-      m_Calls: []
-  use: 0
-  onSelectedFinger:
-    m_PersistentCalls:
-      m_Calls: []
-  onSelectedFingerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onSelectedSelectFinger:
-    m_PersistentCalls:
-      m_Calls: []
-  onSelectedSelectFingerUp:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &-2896460447702536019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456115914855725087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc98219a83dff145947365dc914d06e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tapThreshold: 0.2
-  swipeThreshold: 100
-  referenceDpi: 200
-  guiLayers:
-    serializedVersion: 2
-    m_Bits: 32
-  useTouch: 1
-  useHover: 0
-  useMouse: 1
-  useSimulator: 0
-  disableMouseEmulation: 1
-  recordFingers: 1
-  recordThreshold: 5
-  recordLimit: 10
 --- !u!114 &-6982631437744295872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +85,7 @@ MonoBehaviour:
     IgnoreStartedOverGui: 1
     RequiredFingerCount: 0
     RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 2141764232776191138}
+    RequiredSelectable: {fileID: 0}
   _camera: {fileID: 0}
   sensitivity: 1
   damping: -1

@@ -9,6 +9,7 @@ public class Home : MonoBehaviour
     [SerializeField] public UIDocument uIDocument;
     private VisualElement root;
 
+    Button profil;
     Button search;
     Button connexion;
     Button panier;
@@ -17,11 +18,12 @@ public class Home : MonoBehaviour
     {
         root = uIDocument.rootVisualElement;
 
+        profil = root.Q<Button>("Profil");
         search = root.Q<Button>("SearchButton");
         connexion = root.Q<Button>("ConnectButton");
         panier = root.Q<Button>("Panier");
 
-        List<Button> buttons = new List<Button> { search, connexion, panier };
+        List<Button> buttons = new List<Button> { profil, search, connexion, panier };
         foreach (var button in buttons)
         {
             button.clickable.clicked += () => OnButtonTouch(button);

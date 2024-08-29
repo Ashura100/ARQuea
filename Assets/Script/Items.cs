@@ -13,7 +13,6 @@ namespace ARQuea
     {
         public static Items Instance;
         [SerializeField] public UIDocument uIDocument;
-        [SerializeField] GameObject itemsUI;
         private VisualElement root;
 
         Button home;
@@ -27,9 +26,6 @@ namespace ARQuea
         private void Awake()
         {
             Instance = this;
-
-            // Configuration des boutons d'item
-            ConfigureItemButtons();
         }
 
         private void OnEnable()
@@ -46,11 +42,14 @@ namespace ARQuea
             {
                 button.clickable.clicked += () => OnButtonTouch(button);
             }
+
+            // Configuration des boutons d'item
+            ConfigureItemButtons();
         }
 
         private void ConfigureItemButtons()
         {
-            List<VisualElement> itemButtons = root.Query(className: "Item").ToList();
+            List<VisualElement> itemButtons = root.Query(className: "Items").ToList();
 
             for (int i = 0; i < items.Length; i++)
             {
@@ -68,8 +67,7 @@ namespace ARQuea
             if (selectedItem != null)
             {
                 Debug.Log("Selected item: " + selectedItem.name);
-                itemsUI.SetActive(false);
-                SceneManager.LoadScene("ARScene", LoadSceneMode.Additive);
+                UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI);
                 
             }
             else

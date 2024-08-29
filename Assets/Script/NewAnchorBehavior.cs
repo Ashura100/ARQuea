@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using Vuforia;
 using Lean.Touch;
+using UnityEngine.UIElements;
 
 namespace ARQuea
 {
@@ -13,8 +14,11 @@ namespace ARQuea
         AnchorBehaviour anchorStage;
         PlaneFinderBehaviour planeFinder;
 
+        LeanDragTranslate leanDragTranslate;
+
         GameObject instantiatedObject;
         bool isObjectPlaced = false;
+        bool isObjectFixed = false;
 
         private void Start()
         {
@@ -26,40 +30,60 @@ namespace ARQuea
         {
             if (instantiatedObject != null && !isObjectPlaced)
             {
-                // Si des entrées tactiles sont disponibles
-                if (LeanTouch.Fingers.Count == 1)
+                if (!isObjectFixed)
                 {
-                    ProcessRotate(LeanTouch.Fingers[0]);
+                    // Si des entrées tactiles sont disponibles
+                    if (LeanTouch.Fingers.Count == 3)
+                    {
+                        ProcessRotate(LeanTouch.Fingers[0]);
+                    }
+
+                    ProcessTranslate(LeanTouch.Fingers[0]);
                 }
 
-                // Fixer l'objet en appuyant sur "Espace"
+                // Basculer l'état de fixation en appuyant sur "Espace"
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    isObjectPlaced = true;
+                    isObjectFixed = !isObjectFixed; // Basculer l'état fixé/défixé
 
-                    // Rendre l'objet opaque
-                    SetObjectTransparency(instantiatedObject, 1.0f);
-
-                    Debug.Log("Object placed and fixed at: " + instantiatedObject.transform.position);
+                    if (isObjectFixed)
+                    {
+                        // Rendre l'objet opaque une fois fixé
+                        SetObjectTransparency(instantiatedObject, 1.0f);
+                        Debug.Log("Object fixed at: " + instantiatedObject.transform.position);
+                    }
+                    else
+                    {
+                        // Rendre l'objet transparent une fois défixé
+                        SetObjectTransparency(instantiatedObject, 0.5f);
+                        Debug.Log("Object unfixed and can be moved.");
+                    }
                 }
             }
         }
 
         public void HackPosition(HitTestResult hit)
         {
+            if (instantiatedObject != null)
+            {
+                Debug.Log("An object is already instantiated.");
+                return;
+            }
+
             // Récupérer l'item sélectionné
             ItemsSO selectedItem = Items.Instance.GetSelectedItem();
 
-            // Création de l'AnchorBehaviour
-            anchorStage = VuforiaBehaviour.Instance.ObserverFactory.CreateAnchorBehaviour("Configured Plane", hit);
+            if (anchorStage == null)
+            {
+                // Création de l'AnchorBehaviour
+                anchorStage = VuforiaBehaviour.Instance.ObserverFactory.CreateAnchorBehaviour("Configured Plane", hit);
+            }
+            
 
             if (anchorStage != null && anchorStage.name == "Configured Plane")
             {
                 // Instancier l'objet sélectionné
                 instantiatedObject = Instantiate(selectedItem.gameOject, Vector3.zero, Quaternion.identity, anchorStage.transform);
-
-                // Ajouter LeanTranslate pour permettre le déplacement
-                instantiatedObject.AddComponent<LeanDragTranslate>();
 
                 // Rendre l'objet transparent
                 SetObjectTransparency(instantiatedObject, 0.5f);
@@ -73,6 +97,11 @@ namespace ARQuea
             // Rotation avec les gestes Lean Touch
             float rotationAmount = finger.ScaledDelta.x; // Utiliser le mouvement horizontal pour la rotation
             instantiatedObject.transform.Rotate(Vector3.up, rotationAmount);
+        }
+
+        void ProcessTranslate(LeanFinger finger)
+        {
+            instantiatedObject.GetComponent<LeanDragTranslate>().Camera = Camera.main;
         }
 
         void SetObjectTransparency(GameObject obj, float alpha)

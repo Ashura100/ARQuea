@@ -2,6 +2,7 @@ using ARQuea;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.UIElements;
 
 public class Connexion : MonoBehaviour
@@ -9,6 +10,7 @@ public class Connexion : MonoBehaviour
     [SerializeField] public UIDocument uIDocument;
     private VisualElement root;
 
+    Button profil;
     Button home;
     Button search;
     Button panier;
@@ -17,11 +19,12 @@ public class Connexion : MonoBehaviour
     {
         root = uIDocument.rootVisualElement;
 
+        profil = root.Q<Button>("Profil");
         home = root.Q<Button>("HomeButton");
         search = root.Q<Button>("SearchButton");
         panier = root.Q<Button>("Panier");
 
-        List<Button> buttons = new List<Button> { home, search, panier };
+        List<Button> buttons = new List<Button> { profil, home, search, panier };
         foreach (var button in buttons)
         {
             button.clickable.clicked += () => OnButtonTouch(button);

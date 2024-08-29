@@ -10,6 +10,11 @@ namespace ARQuea
     {
         public static UIManager Instance;
 
+        [SerializeField] public GameObject kitchen;
+        [SerializeField] public GameObject room;
+        [SerializeField] public GameObject chamber;
+        [SerializeField] public GameObject bathroom;
+
         [SerializeField] public GameObject home;
         [SerializeField] public GameObject search;
         [SerializeField] public GameObject itemsUI;
@@ -38,6 +43,21 @@ namespace ARQuea
         {
             switch (button.name)
             {
+                case "Profil":
+                    ChangeScreen(currentScreen, log);
+                    break;
+                case "Kitchen":
+                    ChangeScreen(currentScreen, kitchen);
+                    break;
+                case "Room":
+                    ChangeScreen(currentScreen, room);
+                    break;
+                case "Chamber":
+                    ChangeScreen(currentScreen, chamber);
+                    break;
+                case "Bathroom":
+                    ChangeScreen(currentScreen, bathroom);
+                    break;
                 case "HomeButton":
                     ChangeScreen(currentScreen, home);
                     break;
