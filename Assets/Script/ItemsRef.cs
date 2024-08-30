@@ -16,12 +16,12 @@ public class ItemsRef : MonoBehaviour
     Button connexion;
     Button panier;
 
-    Button arMode;
-
     VisualElement imageCont;
     Label nameLab;
     Label priceLab;
     Label sizeLab;
+
+    Button arMode;
 
     [SerializeField] GameObject itemsUI;
 
@@ -35,12 +35,12 @@ public class ItemsRef : MonoBehaviour
         connexion = root.Q<Button>("ConnectButton");
         panier = root.Q<Button>("Panier");
 
-        arMode = root.Q<Button>("ARVision");
-
         imageCont = root.Q<VisualElement>("ImageContainer");
         nameLab = root.Q<Label>("NameLab");
         priceLab = root.Q<Label>("PriceLab");
         sizeLab = root.Q<Label>("SizeLab");
+
+        arMode = root.Q<Button>("ARVision");
 
         List<Button> buttons = new List<Button> { profil, home, search, connexion, panier };
         foreach (var button in buttons)
@@ -54,7 +54,7 @@ public class ItemsRef : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
-        DisplayData();
+        
     }
 
     // Update is called once per frame
@@ -63,14 +63,13 @@ public class ItemsRef : MonoBehaviour
         
     }
 
-    public void DisplayData()
+    public void DisplayData(ItemsSO items)
     {
-        ItemsSO selectedItem = Items.Instance.GetSelectedItem();
 
-        //imageCont.style.backgroundImage = selectedItem.image;
-        nameLab.text = selectedItem.name;
-        priceLab.text = selectedItem.price.ToString() + "€";
-        sizeLab.text = selectedItem.size.ToString() + "M";
+        imageCont.style.backgroundImage = new StyleBackground(items.image);
+        nameLab.text = items.name;
+        priceLab.text = items.price.ToString() + "€";
+        sizeLab.text = items.size.ToString() + "m";
     }
 
     void OnButtonARClick(Button button)

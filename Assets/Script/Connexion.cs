@@ -15,6 +15,9 @@ public class Connexion : MonoBehaviour
     Button search;
     Button panier;
 
+    Button login;
+    Button signUp;
+
     private void OnEnable()
     {
         root = uIDocument.rootVisualElement;
@@ -24,7 +27,10 @@ public class Connexion : MonoBehaviour
         search = root.Q<Button>("SearchButton");
         panier = root.Q<Button>("Panier");
 
-        List<Button> buttons = new List<Button> { profil, home, search, panier };
+        login = root.Q<Button>("Login");
+        signUp = root.Q<Button>("SignUp");
+
+        List<Button> buttons = new List<Button> { login, signUp, profil, home, search, panier };
         foreach (var button in buttons)
         {
             button.clickable.clicked += () => OnButtonTouch(button);

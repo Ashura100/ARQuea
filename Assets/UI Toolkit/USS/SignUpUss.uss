@@ -1,0 +1,65 @@
+#UserName > .unity-text-field__input {
+    align-self: center;
+    max-width: 1179px;
+    max-height: 2556px;
+    min-width: 100px;
+    min-height: 100px;
+    width: 95%;
+    height: 20%;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 45px;
+    position: absolute;
+    top: 35%;
+    -unity-text-align: middle-left;
+}
+
+#UserName > .unity-base-text-field__label {
+    position: absolute;
+    align-self: center;
+    max-width: 1179px;
+    max-height: 2556px;
+    min-width: 100px;
+    min-height: 100px;
+    width: 95%;
+    height: 2%;
+    -unity-text-align: upper-center;
+    top: auto;
+}
+
+#Mail > .unity-text-field__input {
+    position: absolute;
+    width: 95%;
+    height: 2%;
+    align-self: center;
+    max-width: 1179px;
+    max-height: 2556px;
+    min-width: 100px;
+    min-height: 100px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    top: 35%;
+    font-size: 45px;
+    -unity-text-align: middle-left;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/Font/NIKEA.otf?fileID=12800000&guid=bd9eb3e49b0ae5e498c69290990dbc34&type=3#NIKEA");
+}
+
+#Mail > .unity-base-text-field__label {
+}
+
+#Password > .unity-text-field__input {
+    width: 95%;
+    height: 2%;
+    max-width: 1179px;
+    max-height: 2556px;
+    min-width: 100px;
+    min-height: 100px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 35%;
+    font-size: 45px;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/Font/NIKEA.otf?fileID=12800000&guid=bd9eb3e49b0ae5e498c69290990dbc34&type=3#NIKEA");
+}

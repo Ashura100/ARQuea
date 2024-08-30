@@ -60,6 +60,17 @@ public class Search : MonoBehaviour
 
     }
 
+    /*public void SearchItems(ItemsSO items)
+    {
+        if(searchText.value == items.name)
+        {
+            if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI, 0.5f, items);
+            }
+        }
+    }*/
+
     void OnButtonTouch(Button button)
     {
         UIManager.Instance.OnButtonTouch(button);

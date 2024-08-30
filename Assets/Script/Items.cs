@@ -67,7 +67,7 @@ namespace ARQuea
             if (selectedItem != null)
             {
                 Debug.Log("Selected item: " + selectedItem.name);
-                UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI);
+                UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI, 0.5f, selectedItem);
                 
             }
             else

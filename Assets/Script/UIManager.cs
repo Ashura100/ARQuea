@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +10,8 @@ namespace ARQuea
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
+
+        [SerializeField] ItemsRef itemsRef;
 
         [SerializeField] public GameObject kitchen;
         [SerializeField] public GameObject room;
@@ -19,6 +22,8 @@ namespace ARQuea
         [SerializeField] public GameObject search;
         [SerializeField] public GameObject itemsUI;
         [SerializeField] public GameObject log;
+        [SerializeField] public GameObject signUp;
+        [SerializeField] public GameObject login;
         [SerializeField] public GameObject panier;
         
 
@@ -46,6 +51,12 @@ namespace ARQuea
                 case "Profil":
                     ChangeScreen(currentScreen, log);
                     break;
+                case "SignUp":
+                    ChangeScreen(currentScreen, signUp);
+                    break;
+                case "Login":
+                    ChangeScreen(currentScreen, login);
+                    break;
                 case "Kitchen":
                     ChangeScreen(currentScreen, kitchen);
                     break;
@@ -64,9 +75,6 @@ namespace ARQuea
                 case "SearchButton":
                     ChangeScreen(currentScreen, search);
                     break;
-                /*case "TouchToPlay":
-                    ChangeScreen(currentScreen, gameUi);
-                    break;*/
                 case "ConnectButton":
                     ChangeScreen(currentScreen, log);
                     break;
@@ -76,7 +84,7 @@ namespace ARQuea
             }
         }
 
-        public void ChangeScreen(GameObject fromScreen, GameObject toScreen, float speed = 0.5f)
+        public void ChangeScreen(GameObject fromScreen, GameObject toScreen, float speed = 1, ItemsSO items = null)
         {
             // Déplacer l'écran actuel vers la gauche
             fromScreen.transform.DOMoveX(-Screen.width, speed).OnComplete(() => {
@@ -89,8 +97,12 @@ namespace ARQuea
                 // Amener le nouvel écran vers le centre
                 toScreen.transform.DOMoveX(0, speed);
                 currentScreen = toScreen;
+
+                itemsRef.DisplayData(items);  
             });
         }
+
+        
     }
 
 }
