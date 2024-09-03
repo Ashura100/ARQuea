@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: "Etag\xE8re"
+  m_Name: Canape
   m_EditorClassIdentifier: 
-  objectName: "Etag\xE8re"
+  image: {fileID: 21300000, guid: d0400c3dfbe7bdd40a4fb9ab43f5b670, type: 3}
+  objectName: Canape
   description: 
-  gameOject: {fileID: 6430291554787735348, guid: 3e025c70a23cabe438e620cd0e271497, type: 3}
-  price: 150
-  size: {x: 2, y: 1.5, z: 1}
+  gameOject: {fileID: 5188719395589297662, guid: be94314c2b19dbe4ebd74d0edac524e3, type: 3}
+  price: 400
+  size: {x: 2, y: 1, z: 1.5}

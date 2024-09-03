@@ -6,13 +6,13 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.Device;
+using System.Linq;
 
 namespace ARQuea
 {
     public class Items : MonoBehaviour
     {
         public static Items Instance;
-        [SerializeField] public UIDocument uIDocument;
         private VisualElement root;
 
         Button home;
@@ -20,7 +20,8 @@ namespace ARQuea
         Button connexion;
         Button panier;
 
-        [SerializeField] public ItemsSO[] items;  // Remplacez GameObject[] par ItemSO[]
+        [SerializeField] ItemCategorySO itemCategorySO;
+        //ItemsSO[] items ;  // Remplacez GameObject[] par ItemSO[]
         private ItemsSO selectedItem;  // Ajoutez cette variable pour stocker l'item sélectionné
 
         private void Awake()
@@ -28,27 +29,9 @@ namespace ARQuea
             Instance = this;
         }
 
-        private void OnEnable()
+        public void ConfigureItemButtons(ItemCategory itemCategory, VisualElement root)
         {
-            root = uIDocument.rootVisualElement;
-
-            home = root.Q<Button>("HomeButton");
-            search = root.Q<Button>("SearchButton");
-            connexion = root.Q<Button>("ConnectButton");
-            panier = root.Q<Button>("Panier");
-
-            List<Button> buttons = new List<Button> { home, search, connexion, panier };
-            foreach (var button in buttons)
-            {
-                button.clickable.clicked += () => OnButtonTouch(button);
-            }
-
-            // Configuration des boutons d'item
-            ConfigureItemButtons();
-        }
-
-        private void ConfigureItemButtons()
-        {
+            ItemsSO[] items = GetItems(itemCategory);
             List<VisualElement> itemButtons = root.Query(className: "Items").ToList();
 
             for (int i = 0; i < items.Length; i++)
@@ -57,6 +40,28 @@ namespace ARQuea
                 Button button = (Button)itemButtons[i];
                 button.text = currentItem.name; // Utilisez le nom de l'item dans le ScriptableObject
                 button.clicked += () => OnItemSelected(currentItem); // Passez l'élément directement
+            }
+        }
+
+        public ItemsSO[] GetItems(ItemCategory itemCategory)
+        {
+            switch (itemCategory)
+            {
+                case ItemCategory.Room:
+                    return itemCategorySO.roomItems;
+                    break;
+                case ItemCategory.Kitchen:
+                    return itemCategorySO.kitchenItems;
+                    break;
+                case ItemCategory.Chamber:
+                    return itemCategorySO.chamberItems;
+                    break;
+                case ItemCategory.Bathroom:
+                    return itemCategorySO.bathroomItems;
+                    break;
+                default:
+                    return itemCategorySO.roomItems.Concat(itemCategorySO.kitchenItems.Concat(itemCategorySO.chamberItems.Concat(itemCategorySO.bathroomItems))).ToArray();
+                    break;
             }
         }
 
@@ -79,11 +84,6 @@ namespace ARQuea
         public ItemsSO GetSelectedItem()
         {
             return selectedItem;  // Ajoutez cette méthode pour récupérer l'item sélectionné
-        }
-
-        void OnButtonTouch(Button button)
-        {
-            UIManager.Instance.OnButtonTouch(button);
         }
     }
 }

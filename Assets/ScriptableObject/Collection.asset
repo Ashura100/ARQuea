@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f619e26f90471544391530bc4933b2af, type: 3}
+  m_Name: Collection
+  m_EditorClassIdentifier: 
+  roomItems:
+  - {fileID: 11400000, guid: c9baa09c99db877438717a82a18689de, type: 2}
+  - {fileID: 11400000, guid: f39632aca9ead1f49aae9d00ea83a043, type: 2}
+  - {fileID: 11400000, guid: a98c6075962f94a418c74f5aea45b808, type: 2}
+  - {fileID: 11400000, guid: 276756fb7afc0304fbc80a2a281ad80b, type: 2}
+  - {fileID: 11400000, guid: 9dbfbd6c8cdd41b47861b1771f08a3ed, type: 2}
+  - {fileID: 11400000, guid: 652bdfd3abac0104384fbdff2d5b9a94, type: 2}
+  kitchenItems: []
+  chamberItems:
+  - {fileID: 11400000, guid: 8bb77fea76864e140b532f558a5e27f4, type: 2}
+  - {fileID: 11400000, guid: 1044132210cee4842a68462049b8588d, type: 2}
+  - {fileID: 11400000, guid: 1b9de828fd1c7cf428f3d97fb57ca06e, type: 2}
+  - {fileID: 11400000, guid: 5c21e3a423a172d4f8064b6a27279ba8, type: 2}
+  - {fileID: 11400000, guid: 206f75ada2eeeaa4b929d2cb570ef9d7, type: 2}
+  - {fileID: 11400000, guid: 652bdfd3abac0104384fbdff2d5b9a94, type: 2}
+  bathroomItems: []

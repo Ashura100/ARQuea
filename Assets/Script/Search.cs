@@ -47,29 +47,47 @@ public class Search : MonoBehaviour
         {
             button.clickable.clicked += () => OnButtonTouch(button);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
 
+        searchText.RegisterValueChangedCallback(evt => OnSearchTextChanged(evt.newValue));
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnSearchTextChanged(string newValue)
     {
-
+        SearchItems(newValue);
     }
 
-    /*public void SearchItems(ItemsSO items)
+    public void SearchItems(string searchTextValue)
     {
-        if(searchText.value == items.name)
+        Debug.Log(Items.Instance);
+        ItemsSO[] items = Items.Instance.GetItems(ItemCategory.All);
+
+        // Créer une liste pour stocker les résultats de recherche
+        List<ItemsSO> foundItems = new List<ItemsSO>();
+
+        // Itérer sur tous les items et vérifier si leur nom contient le texte de recherche
+        foreach (ItemsSO item in items)
         {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (item.name.ToLower().Contains(searchTextValue.ToLower()))
             {
-                UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI, 0.5f, items);
+                foundItems.Add(item);
             }
         }
-    }*/
+
+        // Afficher les résultats ou traiter la liste des éléments trouvés
+        if (foundItems.Count > 0)
+        {
+            foreach (ItemsSO foundItem in foundItems)
+            {
+                Debug.Log("Found item: " + foundItem.name);
+                // Vous pouvez ensuite mettre à jour l'interface utilisateur pour afficher les items trouvés.
+                // Par exemple, afficher les boutons associés à chaque item trouvé.
+            }
+        }
+        else
+        {
+            Debug.Log("No items found matching: " + searchTextValue);
+        }
+    }
 
     void OnButtonTouch(Button button)
     {

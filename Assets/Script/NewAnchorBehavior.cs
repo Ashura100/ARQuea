@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using Vuforia;
 using Lean.Touch;
-using UnityEngine.UIElements;
 
 namespace ARQuea
 {
@@ -16,6 +11,7 @@ namespace ARQuea
 
         LeanDragTranslate leanDragTranslate;
 
+        [SerializeField] GameObject canvas;
         GameObject instantiatedObject;
         bool isObjectPlaced = false;
         bool isObjectFixed = false;
@@ -24,6 +20,13 @@ namespace ARQuea
         {
             planeFinder = GetComponent<PlaneFinderBehaviour>();
             planeFinder.HitTestMode = HitTestMode.AUTOMATIC;
+
+            canvas = GetComponent<Canvas>().gameObject;
+
+            if (canvas != null)
+            {
+                canvas.SetActive(false);  // Masquer le Canvas au démarrage
+            }
         }
 
         private void Update()
@@ -57,6 +60,22 @@ namespace ARQuea
                         // Rendre l'objet transparent une fois défixé
                         SetObjectTransparency(instantiatedObject, 0.5f);
                         Debug.Log("Object unfixed and can be moved.");
+                    }
+                }
+            }
+
+            // Vérifier si l'objet est fixé et touché
+            if (isObjectFixed && instantiatedObject != null && LeanTouch.Fingers.Count > 0)
+            {
+                LeanFinger finger = LeanTouch.Fingers[0];
+                Ray ray = Camera.main.ScreenPointToRay(finger.ScreenPosition);
+
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform == instantiatedObject.transform)
+                    {
+                        ShowCanvas();
                     }
                 }
             }
@@ -102,6 +121,15 @@ namespace ARQuea
         void ProcessTranslate(LeanFinger finger)
         {
             instantiatedObject.GetComponent<LeanDragTranslate>().Camera = Camera.main;
+        }
+
+        void ShowCanvas()
+        {
+            if (canvas != null)
+            {
+                canvas.SetActive(true);
+                Debug.Log("Canvas displayed.");
+            }
         }
 
         void SetObjectTransparency(GameObject obj, float alpha)

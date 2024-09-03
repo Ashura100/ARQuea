@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: "Canap\xE9Angle"
+  m_Name: CanapeAngle
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 614d1bcd99712d740a5de50f5ec142c8, type: 3}
-  objectName: 
+  objectName: Canape d'angle
   description: 
   gameOject: {fileID: 8710159877783034348, guid: 52021f593dfe3ff489f4ac47f5b827c0, type: 3}
   price: 800
