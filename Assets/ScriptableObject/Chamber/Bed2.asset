@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
   m_Name: Bed2
   m_EditorClassIdentifier: 
-  objectName: Bed2
+  image: {fileID: 21300000, guid: 32937e0e06c5b3b4d8e69bd945c545ce, type: 3}
+  objectName: Lit en Fer
   description: 
   gameOject: {fileID: 1251094502381441979, guid: b4d95c1cde6b3c04290f0a1bbcba7ba7, type: 3}
   price: 1200

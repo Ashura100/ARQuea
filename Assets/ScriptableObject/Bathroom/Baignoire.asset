@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
+  m_Name: Baignoire
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 429f125f20dd4324a81d1b1d5ea3179a, type: 3}
+  objectName: Baignoire
+  description: 
+  gameOject: {fileID: 3924602245670432728, guid: fa3a314abc18c934983b5661484d8473, type: 3}
+  price: 1000
+  size: {x: 0, y: 0, z: 0}

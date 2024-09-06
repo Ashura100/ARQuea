@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
   m_Name: Table
   m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 93b68a7df98316241ba447a0605e018a, type: 3}
   objectName: 
   description: 
   gameOject: {fileID: 8583991744008562130, guid: 7923e591387379f4781712fada94b33b, type: 3}

@@ -9,10 +9,7 @@ namespace ARQuea
         AnchorBehaviour anchorStage;
         PlaneFinderBehaviour planeFinder;
 
-        LeanDragTranslate leanDragTranslate;
-
         GameObject instantiatedObject;
-        bool isObjectPlaced = false;
         bool isObjectFixed = false;
 
         private void Start()
@@ -23,38 +20,48 @@ namespace ARQuea
 
         private void Update()
         {
-            if (instantiatedObject != null && !isObjectPlaced)
+            Debug.Log(isObjectFixed);
+
+            if (instantiatedObject != null && !isObjectFixed)
             {
-                if (!isObjectFixed)
-                {
                     // Si des entrées tactiles sont disponibles
-                    if (LeanTouch.Fingers.Count == 3)
-                    {
-                        ProcessRotate(LeanTouch.Fingers[0]);
-                    }
-
-                    ProcessTranslate(LeanTouch.Fingers[0]);
-                }
-
-                // Basculer l'état de fixation en appuyant sur "Espace"
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (LeanTouch.Fingers.Count == 3)
                 {
-                    isObjectFixed = !isObjectFixed; // Basculer l'état fixé/défixé
-
-                    if (isObjectFixed)
-                    {
-                        // Rendre l'objet opaque une fois fixé
-                        SetObjectTransparency(instantiatedObject, 1.0f);
-                        Debug.Log("Object fixed at: " + instantiatedObject.transform.position);
-                    }
-                    else
-                    {
-                        // Rendre l'objet transparent une fois défixé
-                        SetObjectTransparency(instantiatedObject, 0.5f);
-                        Debug.Log("Object unfixed and can be moved.");
-                    }
+                    ProcessRotate(LeanTouch.Fingers[0]);
                 }
+
             }
+        }
+
+        public void ToggleObjectFixation()
+        {
+            isObjectFixed = !isObjectFixed; // Basculer l'état fixé/défixé
+
+            if (isObjectFixed)
+            {
+                FixeObject();
+
+            }
+            else
+            {
+                UnFixeObject();
+            }
+        }
+
+        private void UnFixeObject()
+        {
+            // Rendre l'objet transparent une fois défixé
+            SetObjectTransparency(instantiatedObject, 0.5f);
+            Debug.Log("Object unfixed and can be moved.");
+            PrefabManager.Instance.ActiveTranslate();
+        }
+
+        private void FixeObject()
+        {
+            // Rendre l'objet opaque une fois fixé
+            SetObjectTransparency(instantiatedObject, 1.0f);
+            Debug.Log("Object fixed at: " + instantiatedObject.transform.position);
+            PrefabManager.Instance.DesactiveTranslate();
         }
 
         public void HackPosition(HitTestResult hit)
@@ -92,11 +99,6 @@ namespace ARQuea
             // Rotation avec les gestes Lean Touch
             float rotationAmount = finger.ScaledDelta.x; // Utiliser le mouvement horizontal pour la rotation
             instantiatedObject.transform.Rotate(Vector3.up, rotationAmount);
-        }
-
-        void ProcessTranslate(LeanFinger finger)
-        {
-            instantiatedObject.GetComponent<LeanDragTranslate>().Camera = Camera.main;
         }
 
         void SetObjectTransparency(GameObject obj, float alpha)

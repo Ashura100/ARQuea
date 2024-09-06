@@ -79,8 +79,11 @@ public class Search : MonoBehaviour
             foreach (ItemsSO foundItem in foundItems)
             {
                 Debug.Log("Found item: " + foundItem.name);
-                // Vous pouvez ensuite mettre à jour l'interface utilisateur pour afficher les items trouvés.
-                // Par exemple, afficher les boutons associés à chaque item trouvé.
+
+                GameObject itemFounded = Instantiate(foundItem.gameOject); // Si foundItem a un prefab associé
+
+                // Ensuite, on peut appeler ChangeScreen avec l'item trouvé converti en GameObject
+                //UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI, 0.5f, itemFounded);
             }
         }
         else

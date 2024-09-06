@@ -14,6 +14,8 @@ public class Card : MonoBehaviour
     Button search;
     Button connexion;
 
+    ListView list;
+    Button pay;
     private void OnEnable()
     {
         root = uIDocument.rootVisualElement;
@@ -22,6 +24,9 @@ public class Card : MonoBehaviour
         home = root.Q<Button>("HomeButton");
         search = root.Q<Button>("SearchButton");
         connexion = root.Q<Button>("ConnectButton");
+
+        list = root.Q<ListView>("Items");
+        pay = root.Q<Button>("Pay");
 
         List<Button> buttons = new List<Button> { profil, home, search, connexion };
         foreach (var button in buttons)

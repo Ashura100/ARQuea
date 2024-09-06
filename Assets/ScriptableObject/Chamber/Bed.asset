@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
   m_Name: Bed
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  objectName: Bed
+  image: {fileID: 21300000, guid: 2efbbeb741a01364e92797330d6fa6ea, type: 3}
+  objectName: Lit en Bois
   description: 
   gameOject: {fileID: 4599113267152661776, guid: 895bae6fa6a8b8842a87d93029136aad, type: 3}
   price: 1000

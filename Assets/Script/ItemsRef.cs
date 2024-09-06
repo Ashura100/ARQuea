@@ -22,6 +22,7 @@ public class ItemsRef : MonoBehaviour
     Label sizeLab;
 
     Button arMode;
+    Button ajoutPanier;
 
     [SerializeField] GameObject itemsUI;
 
@@ -41,6 +42,7 @@ public class ItemsRef : MonoBehaviour
         sizeLab = root.Q<Label>("SizeLab");
 
         arMode = root.Q<Button>("ARVision");
+        ajoutPanier = root.Q<Button>("AjoutPanier");
 
         List<Button> buttons = new List<Button> { profil, home, search, connexion, panier };
         foreach (var button in buttons)
@@ -49,6 +51,7 @@ public class ItemsRef : MonoBehaviour
         }
 
         arMode.clickable.clicked += () => OnButtonARClick(arMode);
+        //ajoutPanier.clickable.clicked += () => OnButtonGoToPanierClick(ajoutPanier);
     }
 
         // Start is called before the first frame update
@@ -77,6 +80,21 @@ public class ItemsRef : MonoBehaviour
         itemsUI.SetActive(false);
         SceneManager.LoadScene("ARScene", LoadSceneMode.Additive);
     }
+
+    /*void OnButtonGoToPanierClick(Button button)
+    {
+        if (selectedItem != null)
+        {
+            Debug.Log("Ajouté au panier: " + selectedItem.name);
+            // Ajouter la logique pour envoyer l'objet au panier
+            PanierManager.Instance.AddToPanier(selectedItem);
+        }
+        else
+        {
+            Debug.LogWarning("Aucun élément sélectionné pour ajouter au panier.");
+        }
+    }*/
+
     void OnButtonTouch(Button button)
     {
         UIManager.Instance.OnButtonTouch(button);
