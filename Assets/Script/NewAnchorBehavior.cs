@@ -114,7 +114,7 @@ namespace ARQuea
 
                     // Assurez-vous que le mode de rendu est en mode transparent
                     mat.SetFloat("_Mode", 3);
-                    mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                    mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                     mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                     mat.SetInt("_ZWrite", 0);
                     mat.DisableKeyword("_ALPHATEST_ON");

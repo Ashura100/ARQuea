@@ -102,6 +102,11 @@ namespace ARQuea
             });
         }
 
+        public void ComeBackFromAr()
+        {
+            itemsUI.SetActive(true);
+            itemsRef.DisplayData(Items.Instance.GetSelectedItem());
+        }
         
     }
 

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: New Items SO 4
+  m_Name: Plaque De Cuisson
   m_EditorClassIdentifier: 
-  objectName: 
+  image: {fileID: 21300000, guid: 2362089928a705f4f967a73cd0c28351, type: 3}
+  objectName: Plaque de cuisson
   description: 
-  gameOject: {fileID: 0}
-  price: 0
-  size: {x: 0, y: 0, z: 0}
+  gameOject: {fileID: 4863273868079574200, guid: 4aa9c7fe6e424bb4bae971e2fce418f7, type: 3}
+  price: 300
+  size: {x: 1, y: 0.2, z: 1}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: LightTable
+  m_Name: Micro Onde
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 802124e6bd4bed041953fc570ae6da1d, type: 3}
-  objectName: Table de chevet
+  image: {fileID: 21300000, guid: 0b717d19aad11754d8231454583875eb, type: 3}
+  objectName: Micro Onde
   description: 
-  gameOject: {fileID: 441740735293693673, guid: c03cb52594bdc4d4bbcc2d5a2cb6bf64, type: 3}
-  price: 0
-  size: {x: 1.5, y: 1.2, z: 1.8}
+  gameOject: {fileID: 8107088758560444937, guid: 189a9280397c2594ba84092398c84bb3, type: 3}
+  price: 100
+  size: {x: 0.5, y: 0.3, z: 0.4}

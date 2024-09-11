@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: MachineaLaver
+  m_Name: Table de maquillage
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 514e85e1a13939142b6c4d8aec28b814, type: 3}
-  objectName: "Machine \xE0 laver"
+  image: {fileID: 21300000, guid: 93b68a7df98316241ba447a0605e018a, type: 3}
+  objectName: 
   description: 
-  gameOject: {fileID: 727567807682307473, guid: 0fefcb54a19ae1a4eb3ce67a7165bf0b, type: 3}
-  price: 500
-  size: {x: 1.3, y: 1.4, z: 1.3}
+  gameOject: {fileID: 8583991744008562130, guid: 7923e591387379f4781712fada94b33b, type: 3}
+  price: 400
+  size: {x: 1.5, y: 1.5, z: 0.6}

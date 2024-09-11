@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: PlaquedeCuisson
+  m_Name: Lavabo Toilette
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 2362089928a705f4f967a73cd0c28351, type: 3}
-  objectName: Plaque de cuisson
+  image: {fileID: 21300000, guid: 646aaa29bdec1bd42808acf7f863bfaa, type: 3}
+  objectName: Lavabo et Toilette
   description: 
-  gameOject: {fileID: 1718505410737859772, guid: eb766ebb61571b14baf76b08c8426daa, type: 3}
+  gameOject: {fileID: 6022712818120890771, guid: 7e9544ecb8d786849856abd3d6c1feee, type: 3}
   price: 300
-  size: {x: 1, y: 0.2, z: 1}
+  size: {x: 0, y: 0, z: 0}

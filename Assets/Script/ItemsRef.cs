@@ -25,6 +25,7 @@ public class ItemsRef : MonoBehaviour
     Button ajoutPanier;
 
     [SerializeField] GameObject itemsUI;
+    private ItemsSO currentItem;
 
     private void OnEnable()
     {
@@ -51,7 +52,7 @@ public class ItemsRef : MonoBehaviour
         }
 
         arMode.clickable.clicked += () => OnButtonARClick(arMode);
-        //ajoutPanier.clickable.clicked += () => OnButtonGoToPanierClick(ajoutPanier);
+        ajoutPanier.clickable.clicked += () => OnButtonGoToPanierClick(ajoutPanier);
     }
 
         // Start is called before the first frame update
@@ -68,6 +69,7 @@ public class ItemsRef : MonoBehaviour
 
     public void DisplayData(ItemsSO items)
     {
+        currentItem = items;
 
         imageCont.style.backgroundImage = new StyleBackground(items.image);
         nameLab.text = items.name;
@@ -81,19 +83,11 @@ public class ItemsRef : MonoBehaviour
         SceneManager.LoadScene("ARScene", LoadSceneMode.Additive);
     }
 
-    /*void OnButtonGoToPanierClick(Button button)
+    void OnButtonGoToPanierClick(Button button)
     {
-        if (selectedItem != null)
-        {
-            Debug.Log("Ajouté au panier: " + selectedItem.name);
-            // Ajouter la logique pour envoyer l'objet au panier
-            PanierManager.Instance.AddToPanier(selectedItem);
-        }
-        else
-        {
-            Debug.LogWarning("Aucun élément sélectionné pour ajouter au panier.");
-        }
-    }*/
+        // Appel pour ajouter l'item au panier
+        PanierManager.Instance.AddToPanier(currentItem);
+    }
 
     void OnButtonTouch(Button button)
     {

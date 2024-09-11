@@ -14,8 +14,13 @@ public class Card : MonoBehaviour
     Button search;
     Button connexion;
 
-    ListView list;
     Button pay;
+
+    VisualElement cardContainer;
+
+    // ListView pour afficher les items du panier
+    ListView listViewPanier;
+
     private void OnEnable()
     {
         root = uIDocument.rootVisualElement;
@@ -25,25 +30,41 @@ public class Card : MonoBehaviour
         search = root.Q<Button>("SearchButton");
         connexion = root.Q<Button>("ConnectButton");
 
-        list = root.Q<ListView>("Items");
         pay = root.Q<Button>("Pay");
+
+        // Initialisation du container du ListView
+        cardContainer = root.Q<VisualElement>("CardContainer");
+        cardContainer.style.display = DisplayStyle.None; // Cache par défaut
+
+        // Initialisation du ListView
+        listViewPanier = new ListView();
+        listViewPanier.style.flexGrow = 1;
+
+        // Ajout du ListView au conteneur
+        cardContainer.Add(listViewPanier);
 
         List<Button> buttons = new List<Button> { profil, home, search, connexion };
         foreach (var button in buttons)
         {
             button.clickable.clicked += () => OnButtonTouch(button);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
 
+        UpdatePanier(PanierManager.Instance.panierItems);
     }
 
-    // Update is called once per frame
-    void Update()
+    // Méthode pour mettre à jour et afficher le panier
+    public void UpdatePanier(List<ItemsSO> panierItems)
     {
+        listViewPanier.itemsSource = panierItems;
+        listViewPanier.makeItem = () => new Label();
+        listViewPanier.bindItem = (element, i) =>
+        {
+            (element as Label).text = $"{panierItems[i].objectName} - {panierItems[i].price}€";
+        };
+        listViewPanier.Rebuild();
 
+        // Affiche le container du panier
+        cardContainer.style.display = DisplayStyle.Flex;
     }
 
     void OnButtonTouch(Button button)

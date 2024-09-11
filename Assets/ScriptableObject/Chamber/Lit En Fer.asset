@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea154ac661f6de479006b827d1e79de, type: 3}
-  m_Name: TableBasse
+  m_Name: Lit En Fer
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 01bc6bf4d0399a84db2dd1f733604e1f, type: 3}
-  objectName: Table Basse
+  image: {fileID: 21300000, guid: 32937e0e06c5b3b4d8e69bd945c545ce, type: 3}
+  objectName: Lit en Fer
   description: 
-  gameOject: {fileID: 5052278468339351742, guid: 3acea8b8ad745384fa9a7feabe641426, type: 3}
-  price: 150
-  size: {x: 1.5, y: 0.5, z: 0.5}
+  gameOject: {fileID: 1251094502381441979, guid: b4d95c1cde6b3c04290f0a1bbcba7ba7, type: 3}
+  price: 1200
+  size: {x: 2, y: 0.9, z: 1.6}
