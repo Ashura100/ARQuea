@@ -87,6 +87,7 @@ public class ItemsRef : MonoBehaviour
     {
         // Appel pour ajouter l'item au panier
         PanierManager.Instance.AddToPanier(currentItem);
+        Debug.Log("selecte :" +  currentItem);
     }
 
     void OnButtonTouch(Button button)
