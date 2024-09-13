@@ -47,3 +47,5 @@ Pour la partie AR le _**SDK**_ de _**Vuforia**_ a été téléchargé et install
 Pour Conclure, l'application est fonctionnelle, permet de choisir des catégories d'article et et les articles de la catégorie choisie, de les mettrent en AR et de les mettrent dans le panier ou non.
 
 ![true-romance-tony-scott](https://github.com/user-attachments/assets/6d7612a3-c492-4003-ad20-21d691f44156)
+
+Lien APK : https://drive.google.com/file/d/1Oj4hhIfsqHLJNxeLRtNdWrNuVCEQ1Bmx/view?usp=drive_link
