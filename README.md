@@ -39,6 +39,7 @@ Pour la partie AR le _SDK_ de _Vuforia_ a été téléchargé et installé dans 
 
 ## **Démonstration**
 
+![ARQueaG](https://github.com/user-attachments/assets/8f827497-c5da-47bc-b7ad-f3fe484c4898)
 
 
 ## **Conclusion**
