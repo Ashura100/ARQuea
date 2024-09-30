@@ -193,8 +193,8 @@ public class Search : MonoBehaviour
                     float.Parse(itemData.GetValue("TailY").ToString()),
                     float.Parse(itemData.GetValue("TailX").ToString())
                 );
-
-            newItem.image = Resources.Load<Sprite>(itemData.GetValue("Image").ToString()); 
+            newItem.image = Resources.Load<Sprite>(itemData.GetValue("Image").ToString());
+            //newItem.gameOject = Instantiate(Resources.Load(itemData.GetValue("Model"))) as GameObject;
 
             // Ajoutez l'item à la liste des items
             items.Add(newItem);
