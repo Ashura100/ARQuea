@@ -16,5 +16,5 @@ MonoBehaviour:
   objectName: Table de chevet
   description: 
   gameOject: {fileID: 441740735293693673, guid: c03cb52594bdc4d4bbcc2d5a2cb6bf64, type: 3}
-  price: 0
+  price: 200
   size: {x: 1.5, y: 1.2, z: 1.8}

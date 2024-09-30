@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.Device;
 using System.Linq;
+using Newtonsoft.Json.Linq;
+using UnityEngine.Networking;
 
 namespace ARQuea
 {
@@ -20,8 +22,6 @@ namespace ARQuea
         Button connexion;
         Button panier;
 
-        [SerializeField] ItemCategorySO itemCategorySO;
-        //ItemsSO[] items ;  // Remplacez GameObject[] par ItemSO[]
         private ItemsSO selectedItem;  // Ajoutez cette variable pour stocker l'item sélectionné
 
         private void Awake()
@@ -29,39 +29,23 @@ namespace ARQuea
             Instance = this;
         }
 
-        public void ConfigureItemButtons(ItemCategory itemCategory, VisualElement root)
+        public void ConfigureItemButtons(VisualElement root)
         {
-            ItemsSO[] items = GetItems(itemCategory);
+            // Récupérez la liste des items depuis le script Search
+            List<ItemsSO> items = Search.Instance.items;  // Assurez-vous que Search a une instance statique
+
+            // Recherchez tous les éléments d'interface utilisateur où les items seront affichés
             List<VisualElement> itemButtons = root.Query(className: "Items").ToList();
 
-            for (int i = 0; i < items.Length; i++)
-            {
-                ItemsSO currentItem = items[i]; // Capturez l'élément actuel
-                Button button = (Button)itemButtons[i];
-                button.text = currentItem.name; // Utilisez le nom de l'item dans le ScriptableObject
-                button.clicked += () => OnItemSelected(currentItem); // Passez l'élément directement
-            }
-        }
+            // Vérifiez que nous avons suffisamment de boutons pour afficher tous les items
+            int itemCount = Mathf.Min(items.Count, itemButtons.Count);
 
-        public ItemsSO[] GetItems(ItemCategory itemCategory)
-        {
-            switch (itemCategory)
+            for (int i = 0; i < itemCount; i++)
             {
-                case ItemCategory.Room:
-                    return itemCategorySO.roomItems;
-                    break;
-                case ItemCategory.Kitchen:
-                    return itemCategorySO.kitchenItems;
-                    break;
-                case ItemCategory.Chamber:
-                    return itemCategorySO.chamberItems;
-                    break;
-                case ItemCategory.Bathroom:
-                    return itemCategorySO.bathroomItems;
-                    break;
-                default:
-                    return itemCategorySO.roomItems.Concat(itemCategorySO.kitchenItems.Concat(itemCategorySO.chamberItems.Concat(itemCategorySO.bathroomItems))).ToArray();
-                    break;
+                ItemsSO currentItem = items[i];  // Capturez l'élément actuel
+                Button button = (Button)itemButtons[i];
+                button.text = currentItem.name;  // Utilisez le nom de l'item dans le ScriptableObject
+                button.clicked += () => OnItemSelected(currentItem);  // Passez l'élément directement dans le gestionnaire d'événements
             }
         }
 
@@ -73,7 +57,6 @@ namespace ARQuea
             {
                 Debug.Log("Selected item: " + selectedItem.name);
                 UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.itemsUI, 0.5f, selectedItem);
-                
             }
             else
             {

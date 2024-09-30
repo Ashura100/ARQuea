@@ -79,8 +79,16 @@ public class ItemsRef : MonoBehaviour
 
     void OnButtonARClick(Button button)
     {
-        itemsUI.SetActive(false);
+        StartCoroutine(WaitScene());
+    }
+
+    IEnumerator WaitScene()
+    {
         SceneManager.LoadScene("ARScene", LoadSceneMode.Additive);
+        yield return new WaitForSeconds(1);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ARScene"));
+        Debug.Log(SceneManager.GetActiveScene().name);
+        itemsUI.SetActive(false);
     }
 
     void OnButtonGoToPanierClick(Button button)

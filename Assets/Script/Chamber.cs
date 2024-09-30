@@ -15,8 +15,6 @@ public class Chamber : MonoBehaviour
     Button connexion;
     Button panier;
 
-    [SerializeField] ItemCategory itemCategory;
-
     private void OnEnable()
     {
         root = uIDocument.rootVisualElement;
@@ -27,7 +25,7 @@ public class Chamber : MonoBehaviour
         connexion = root.Q<Button>("ConnectButton");
         panier = root.Q<Button>("Panier");
 
-        Items.Instance.ConfigureItemButtons(itemCategory, root);
+        Items.Instance.ConfigureItemButtons(root);
 
         List<Button> buttons = new List<Button> {profil, home, search, connexion, panier };
         foreach (var button in buttons)

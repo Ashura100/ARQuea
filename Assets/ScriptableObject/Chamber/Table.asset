@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Table
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 93b68a7df98316241ba447a0605e018a, type: 3}
-  objectName: 
+  objectName: Maquilleuse
   description: 
   gameOject: {fileID: 8583991744008562130, guid: 7923e591387379f4781712fada94b33b, type: 3}
-  price: 0
+  price: 300
   size: {x: 1, y: 1.2, z: 2}

@@ -80,7 +80,6 @@ namespace ARQuea
                 // Création de l'AnchorBehaviour
                 anchorStage = VuforiaBehaviour.Instance.ObserverFactory.CreateAnchorBehaviour("Configured Plane", hit);
             }
-            
 
             if (anchorStage != null && anchorStage.name == "Configured Plane")
             {
