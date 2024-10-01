@@ -74,7 +74,7 @@ public class ItemsRef : MonoBehaviour
         imageCont.style.backgroundImage = new StyleBackground(items.image);
         nameLab.text = items.name;
         priceLab.text = items.price.ToString() + "€";
-        sizeLab.text = items.size.ToString() + "m";
+        sizeLab.text = $"{items.size.x}m, {items.size.y}m, {items.size.z}m";
     }
 
     void OnButtonARClick(Button button)

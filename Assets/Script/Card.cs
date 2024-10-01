@@ -56,12 +56,14 @@ public class Card : MonoBehaviour
     public void UpdatePanier(List<ItemsSO> panierItems)
     {
         listViewPanier.itemsSource = panierItems;
-        listViewPanier.makeItem = () => new Label();
+        listViewPanier.makeItem = () => new Label(); // Crée un nouveau Label pour chaque item
         listViewPanier.bindItem = (element, i) =>
         {
-            (element as Label).text = $"{panierItems[i].objectName} - {panierItems[i].price}€";
+            ItemsSO item = panierItems[i]; // Récupérer l'item correspondant
+            (element as Label).text = $"{item.name} - {item.price}€"; // Affiche le nom et le prix
         };
         listViewPanier.Rebuild();
+
 
         // Affiche le container du panier
         cardContainer.style.display = DisplayStyle.Flex;
