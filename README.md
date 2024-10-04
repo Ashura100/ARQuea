@@ -54,10 +54,10 @@ Lien PHP : https://drive.google.com/drive/folders/1p5H2xrXtLDpQ0qYvktaI0sJBYothU
 
 lien SQL : https://drive.google.com/file/d/1svjZYBV9GL9si7WDXMKejUqCkDKsaF-q/view?usp=drive_link
 
-#**Installation Base de Donnée**
+# **Installation Base de Donnée**
 
 Pour installer la base de donnée cliqué sur votre application **Wamp**, puis **PHPMyAdmin**, créer une base de donnée en **latin_swedish** nommer la du nom que vous vuoulez, puis drag and drop le fichier DB.
 
-#**Installation du PHP**
+# **Installation du PHP**
 
 Pour installer les fichier Php, aller dans votre **Explorateur de fichier**, puis dans votre dossier **wamp64**, ensuite le dossier **www**, créer un dossier avec le nom que vous voulez, mettez les fichiers Php dedans.
