@@ -52,8 +52,8 @@ Lien APK : https://drive.google.com/file/d/1Oj4hhIfsqHLJNxeLRtNdWrNuVCEQ1Bmx/vie
 
 Lien PHP : https://drive.google.com/drive/folders/1p5H2xrXtLDpQ0qYvktaI0sJBYothUJEZ?usp=drive_link
 
-lien SQL : https://drive.google.com/file/d/1svjZYBV9GL9si7WDXMKejUqCkDKsaF-q/view?usp=sharing
+lien SQL : https://drive.google.com/file/d/1svjZYBV9GL9si7WDXMKejUqCkDKsaF-q/view?usp=drive_link
 
 #**Installation Base de Donnée**
 
-Pour installer la base de donnée cliqué sur votre application **Wamp**, puis **PHPMyAdmin**, créer une base de donnée en **latin_swedish** nommer la du nom que vous vuoulez, puis drag and drop le fichier DB 
+Pour installer la base de donnée cliqué sur votre application **Wamp**, puis **PHPMyAdmin**, créer une base de donnée en **latin_swedish** nommer la du nom que vous vuoulez, puis drag and drop le fichier DB.
