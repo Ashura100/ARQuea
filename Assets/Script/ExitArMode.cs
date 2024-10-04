@@ -1,15 +1,15 @@
-using ARQuea;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-public class ExitArMode : MonoBehaviour
+
+namespace ARQuea
 {
-    public void ChangeScene()
+    public class ExitArMode : MonoBehaviour
     {
-        UIManager.Instance.ComeBackFromAr();
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("SampleScene"));
-        SceneManager.UnloadSceneAsync("ARScene");
+        public void ChangeScene()
+        {
+            UIManager.Instance.ComeBackFromAr();
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("SampleScene"));
+            SceneManager.UnloadSceneAsync("ARScene");
+        }
     }
 }

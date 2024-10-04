@@ -45,6 +45,13 @@
     -unity-font: url("project://database/Assets/Font/NIKEA.otf?fileID=12800000&guid=bd9eb3e49b0ae5e498c69290990dbc34&type=3#NIKEA");
 }
 
+#ConfirmPassword .unity-text-field__input {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 45px;
+}
+
 #Mail > .unity-base-text-field__label {
 }
 

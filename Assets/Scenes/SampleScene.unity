@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIDocument: {fileID: 416784459}
+  items: []
 --- !u!1 &422400873
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3880342402446884287dfdd6fad1668b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCategorySO: {fileID: 11400000, guid: 35bc012cdd7afa94880672a4d570c6e2, type: 2}
 --- !u!4 &901323460
 Transform:
   m_ObjectHideFlags: 0
@@ -867,7 +867,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIDocument: {fileID: 1023765704}
-  itemCategory: 0
 --- !u!1 &1060867436
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +929,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIDocument: {fileID: 1060867437}
-  itemCategory: 1
+--- !u!1 &1102311939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102311940}
+  - component: {fileID: 1102311941}
+  m_Layer: 0
+  m_Name: LogManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102311940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102311939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1265.6843, y: 2383.1814, z: 686.2069}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102311941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102311939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf378ec28870f8b4fafbb758c92c6550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1108346628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIDocument: {fileID: 1124896699}
-  itemCategory: 2
 --- !u!1 &1388260220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIDocument: {fileID: 2146791198}
-  itemCategory: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1251,6 +1291,7 @@ SceneRoots:
   - {fileID: 30824194}
   - {fileID: 901323460}
   - {fileID: 422400874}
+  - {fileID: 1102311940}
   - {fileID: 1108346630}
   - {fileID: 683843027}
   - {fileID: 416784460}

@@ -1,43 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Lean.Touch;
 
-public class PrefabManager : MonoBehaviour
+namespace ARQuea
 {
-    public static PrefabManager Instance;
-
-    [SerializeField] LeanDragTranslate leanDragTranslate;
-    [SerializeField] ARItemsRef ar;
-
-    private void Awake()
+    public class PrefabManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static PrefabManager Instance;
+
+        [SerializeField] LeanDragTranslate leanDragTranslate;
+        [SerializeField] ARItemsRef ar;
+
+        private void Awake()
         {
-            // Recherche de l'instance existante dans la scène
-            Instance = this;
+            if (Instance == null)
+            {
+                // Recherche de l'instance existante dans la scène
+                Instance = this;
+            }
         }
-    }
 
-    public void ActiveTranslate()
-    {
-        gameObject.GetComponent<LeanDragTranslate>().enabled = true;
-        gameObject.GetComponent<LeanDragTranslate>().Camera = Camera.main;
-    }
+        public void ActiveTranslate()
+        {
+            gameObject.GetComponent<LeanDragTranslate>().enabled = true;
+            gameObject.GetComponent<LeanDragTranslate>().Camera = Camera.main;
+        }
 
-    public void DesactiveTranslate()
-    {
-        gameObject.GetComponent<LeanDragTranslate>().enabled = false;
-        gameObject.GetComponent<LeanDragTranslate>().Camera = null;
-    }
+        public void DesactiveTranslate()
+        {
+            gameObject.GetComponent<LeanDragTranslate>().enabled = false;
+            gameObject.GetComponent<LeanDragTranslate>().Camera = null;
+        }
 
-    public void Show()
-    {
-        ar.gameObject.SetActive(true);
-    }
+        public void Show()
+        {
+            ar.gameObject.SetActive(true);
+        }
 
-    public void Hide()
-    {
-        ar.gameObject.SetActive(false);
+        public void Hide()
+        {
+            ar.gameObject.SetActive(false);
+        }
     }
 }
