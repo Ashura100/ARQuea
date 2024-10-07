@@ -2,10 +2,13 @@
     "name": "ARQuea",
     "rootNamespace": "ARQuea",
     "references": [
-        "GUID:688cfbbe2a536604ab4aa06ececa1da3"
+        "GUID:688cfbbe2a536604ab4aa06ececa1da3",
+        "GUID:4aa734a563557450591d3fe58a62a120"
     ],
     "includePlatforms": [],
-    "excludePlatforms": [],
+    "excludePlatforms": [
+        "Editor"
+    ],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],

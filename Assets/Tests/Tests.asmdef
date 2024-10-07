@@ -3,9 +3,8 @@
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner",
-        "ARQuea",
-        "LeanTouch"
+        "LeanTouch",
+        "ARQuea"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

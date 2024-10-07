@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsRef: {fileID: 841597628}
+  profil: {fileID: 683843024}
   kitchen: {fileID: 1060867436}
   room: {fileID: 1023765703}
   chamber: {fileID: 1124896698}
@@ -360,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683843027}
   - component: {fileID: 683843026}
-  - component: {fileID: 683843025}
+  - component: {fileID: 683843028}
   m_Layer: 5
   m_Name: ProfilUI
   m_TagString: Untagged
@@ -368,19 +369,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &683843025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683843024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c465c72f39104458d788980597764a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uIDocument: {fileID: 683843026}
 --- !u!114 &683843026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +400,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683843028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683843024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c465c72f39104458d788980597764a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIDocument: {fileID: 683843026}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

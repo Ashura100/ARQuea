@@ -104,7 +104,6 @@ namespace ARQuea
             itemsUI.SetActive(true);
             itemsRef.DisplayData(Items.Instance.GetSelectedItem());
         }
-        
     }
 
 }
