@@ -7,7 +7,15 @@ namespace ARQuea
     public class LogManager : MonoBehaviour
     {
         public static LogManager Instance;
+        public User currentUser;
 
+        [System.Serializable]
+        public class User
+        {
+            public string username;
+            public string email;
+            public string role;
+        }
         private void Awake()
         {
             if (Instance == null)
@@ -63,8 +71,39 @@ namespace ARQuea
                 {
                     string responseText = www.downloadHandler.text;
                     Debug.Log("Login Response: " + responseText);
-                    // Parse JSON response here and handle accordingly
+
+                    LogInResponse json = JsonUtility.FromJson<LogInResponse>(responseText);
+                    if (json.success)
+                    {
+                        currentUser = new User()
+                        {
+                            username = json.user.username,
+                            email = json.user.email,
+                            role = json.user.role
+                        };
+                        Debug.Log("User logged in: " + currentUser.username);
+                    }
+                    else
+                    {
+                        Debug.LogError("Login Failed: " + json.message);
+                    }
                 }
+            }
+        }
+
+        [System.Serializable]
+        public class LogInResponse
+        {
+            public bool success;
+            public string message;
+            public UserData user;
+
+            [System.Serializable]
+            public class UserData
+            {
+                public string username;
+                public string email;
+                public string role;
             }
         }
     }

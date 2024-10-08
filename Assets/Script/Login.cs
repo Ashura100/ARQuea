@@ -54,7 +54,7 @@ namespace ARQuea
 
             // Call the SignUp method from LogManager
             StartCoroutine(LogManager.Instance.LogIn(usernameValue, passwordValue));
-            UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.home);
+            UIManager.Instance.ChangeScreen(UIManager.Instance.currentScreen, UIManager.Instance.profil);
         }
 
         void OnButtonTouch(Button button)

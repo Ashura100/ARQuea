@@ -10,6 +10,7 @@ namespace ARQuea
 
         [SerializeField] ItemsRef itemsRef;
 
+        [SerializeField] public GameObject profil;
         [SerializeField] public GameObject kitchen;
         [SerializeField] public GameObject room;
         [SerializeField] public GameObject chamber;
