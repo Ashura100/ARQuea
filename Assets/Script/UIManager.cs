@@ -47,7 +47,7 @@ namespace ARQuea
             switch (button.name)
             {
                 case "Profil":
-                    ChangeScreen(currentScreen, log);
+                    ChangeScreen(currentScreen, profil);
                     break;
                 case "SignUp":
                     ChangeScreen(currentScreen, signUp);

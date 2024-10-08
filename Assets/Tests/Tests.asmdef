@@ -2,6 +2,7 @@
     "name": "Tests",
     "rootNamespace": "",
     "references": [
+        "UnityEditor.TestRunner",
         "UnityEngine.TestRunner",
         "LeanTouch",
         "ARQuea"

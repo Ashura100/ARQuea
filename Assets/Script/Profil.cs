@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UIElements;
 
 namespace ARQuea
@@ -10,9 +8,11 @@ namespace ARQuea
     {
         [SerializeField] public UIDocument uIDocument;
         private VisualElement root;
+
         Label role;
         Label username;
         Label mail;
+
         Button home;
         Button search;
         Button connexion;
@@ -21,10 +21,12 @@ namespace ARQuea
         private void OnEnable()
         {
             root = uIDocument.rootVisualElement;
+
             username = root.Q<Label>("Username");
             mail = root.Q<Label>("Mail");
             role = root.Q<Label>("Role");
-            home = root.Q<Button>("Home");
+
+            home = root.Q<Button>("HomeButton");
             search = root.Q<Button>("SearchButton");
             connexion = root.Q<Button>("ConnectButton");
             panier = root.Q<Button>("Panier");
@@ -34,13 +36,11 @@ namespace ARQuea
             {
                 button.clickable.clicked += () => OnButtonTouch(button);
             }
-
-            DisplayData();
         }
 
         void Start()
         {
-            
+            DisplayData();
         }
 
         void DisplayData()

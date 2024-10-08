@@ -81,11 +81,6 @@ namespace ARQuea
                             email = json.user.email,
                             role = json.user.role
                         };
-                        Debug.Log("User logged in: " + currentUser.username);
-                    }
-                    else
-                    {
-                        Debug.LogError("Login Failed: " + json.message);
                     }
                 }
             }
